@@ -1,7 +1,7 @@
 package meetingteam.commonlibrary.utils;
-
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.jwt.Jwt;
 
 import java.util.List;
 
@@ -22,5 +22,12 @@ public class AuthUtil {
         return authentication.getAuthorities().stream()
                 .map(grantedAuthority -> grantedAuthority.getAuthority())
                 .toList();
+    }
+
+    public static String getJwtToken(){
+        return ((Jwt) SecurityContextHolder.getContext()
+                .getAuthentication()
+                .getPrincipal())
+                .getTokenValue();
     }
 }
