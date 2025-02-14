@@ -12,7 +12,7 @@ public class FileUtil {
     }
 
     public static boolean isImageUrl(String fileName){
-        List<String> imageExtensions= List.of("png", "jpeg", "bmp","jpg");
+        List<String> imageExtensions= List.of("png", "jpeg", "bmp","jpg", "svg");
         String filetype=fileName.substring(fileName.lastIndexOf(".")+1);
         return imageExtensions.contains(filetype);
     }
